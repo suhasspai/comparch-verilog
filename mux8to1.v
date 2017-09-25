@@ -1,0 +1,39 @@
+module mux8to1(input [15:0] outR0, input [15:0] outR1, input [15:0] outR2, input [15:0] outR3, input [15:0] outR4, input [15:0] outR5, input [15:0] outR6, input [15:0] outR7, input [2:0] Sel, output reg [15:0] outBus);
+	always @ (outR0 or outR1 or outR2 or outR3 or outR4 or outR5 or outR6 or outR7 or Sel)
+	begin
+		case (Sel)
+			3'b000:
+			begin
+				outBus=outR0;
+			end
+			3'b001:
+			begin
+				outBus=outR1;
+			end
+			3'b010:
+			begin
+				outBus=outR2;
+			end
+			3'b011:
+			begin
+				outBus=outR3;
+			end
+			3'b100:
+			begin
+				outBus=outR4;
+			end
+			3'b101:
+			begin
+				outBus=outR5;
+			end
+			3'b110:
+			begin
+				outBus=outR6;
+			end
+			3'b111:
+			begin
+				outBus=outR7;
+			end
+		endcase
+	end
+endmodule
